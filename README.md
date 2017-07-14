@@ -14,4 +14,4 @@ Developers
 
 - [Tatsurou Miyazaki]
 
-- [Kousaku Yamauchi]
+- [Kosaku Yamauchi]
