@@ -3,27 +3,23 @@
 <head>
 	<title>在室管理</title>
 
-	<script language="javascript" type="text/javascript">
-	</script>
-	<script language="javascript" type="text/javascript">
+	<script language='javascript' type='text/javascript'>
 		function test(status){
 			localStorage.setItem('currentStatus',status.value);
 			var a = localStorage.getItem('currentStatus');
-			alert(a);
-			//window.open('status2.html','_blank');
-			window.location.href = 'status2.html';
-			//window.close();
-		}
-		
+			alert(a + 'に変更しました!');
+			//window.location.href = 'move.html';
+			window.close();
+		}	
 	</script>
-	<meta http-equiv="content-type" charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="./design.css">
+	<meta http-equiv='content-type' charset='utf-8'>
+	<link rel='stylesheet' type='text/css' href='./design.css'>
 </head>
 <body>
 状態を選んでください。
-<input id="button1" type="button" value="在室" onClick="test(this)"/>
-<input id="button1" type="button" value="帰宅" onClick="test(this);"/>
-<input id="button1" type="button" value="セブンイレブン" onClick="test(this);"/>
+<input id='button1' type='button' value='在室' onClick='test(this)'/>
+<input id='button1' type='button' value='帰宅' onClick='test(this);'/>
+<input id='button1' type='button' value='セブンイレブン' onClick='test(this);'/>
 
 </body>
 </html>

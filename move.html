@@ -3,43 +3,85 @@
 <head>
 	<title>在室管理</title>
 
-	<script language="javascript" type="text/javascript">
+	<script language='javascript' type='text/javascript'>
+
+		var member = ['宮崎','山内','佐山'];
+
+		function OnButtonClick2(status){
+			var v = status.value.split(':');
+			for(var i = 0;i < v.length;i++){
+				v[i] = v[i].trim();
+			}
+			window.open('status.html','_blank');
+			//window.location.href = 'status.html'
+			v[1] = localStorage.getItem('currentStatus');
+			alert(v[1]);
+			status.value = v[0] + ' : ' + v[1]
+			console.log(v[0] + ' : ' + v[1]);
+		}
 
 		function OnButtonClick(status){
-			var v = status.value.split(":");
+			var v = status.value.split(':');
 			for(var i = 0;i < v.length;i++){
 				v[i] = v[i].trim();
 			}
-			//window.open('status.html','_blank');
-			window.location.href = 'status.html'
-			status.value = v[0] + ' : ' + v[1]
-			console.log(v[0] + ' : ' + v[1]);
-		}
-		function change(status){
-			var v = status.value.split(":");
-			for(var i = 0;i < v.length;i++){
-				v[i] = v[i].trim();
+			if(v[1] == '在室'){
+				v[1] = '帰宅';
+			}else if(v[1] == '帰宅'){
+				v[1] = 'セブンイレブン';
+			}else{
+				v[1] = '在室';
 			}
-			var newV = localStorage.getItem('currentStatus');
-			v[1] = newV;
-			alert(newV);
+
 			status.value = v[0] + ' : ' + v[1]
 			console.log(v[0] + ' : ' + v[1]);
 		}
 
+		function changeStatus(){
+			//var val = document.sel1.sel11.value;	
+			//console.log(val);
+		}
+		
+
 	</script>
-	<meta http-equiv="content-type" charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="./design.css">
+	<meta http-equiv='content-type' charset='utf-8'>
+	<link rel='stylesheet' type='text/css' href='./design.css'>
 </head>
 <body>
 	
-	<!--<script type="text/javascript" src="./zaisitu.js"></script>
-	<button type="button" class="button2" value="宮崎" onclick="OnButtonClick(value);">宮崎<br>在室</button>-->
-	<input id="button1" type="button" value="宮崎 : 在室" onClick="OnButtonClick(this);"/>
+	<!--<script type='text/javascript' src='./zaisitu.js'></script>
+	<button type='button' class='button2' value='宮崎' onclick='OnButtonClick(value);'>宮崎<br>在室</button>-->
+	<!--<form name = 'miyazaki'>
+		<input name = 'miyazaki' id='button1' type='button' value='宮崎 : 在室' onClick='OnButtonClick(this);'/>
 	</form>
-	<input id="button1" type="button" value="山内 : 在室" onClick="OnButtonClick(this);"/>
+	<input id='button1' type='button' value='山内 : 在室' onClick='OnButtonClick(this);'/>
 	</form>
-	<input id="button1" type="button" value="佐山 : 在室" onClick="OnButtonClick(this);"/>
+	<input id='button1' type='button' value='佐山 : 在室' onClick='OnButtonClick(this);'/>-->
 
+	<form name = 'sel1' class = 'styled-select blue semi-square'>
+		<select id = 'sel11' name = 'sel11' onchange = 'changeStatus();'>
+			<option value = '宮崎 : 在室'>宮崎 : 在室</option>
+			<option value = '宮崎 : ゼミ'>宮崎 : ゼミ</option>
+			<option value = '宮崎 : TA'>宮崎 : TA</option>
+			<option value = '宮崎 : 帰宅'>宮崎 : 帰宅</option>
+		</select>
+	</form>
+	<form name = 'sel1' class = 'styled-select blue semi-square'>
+		<select id = 'sel11' name = 'sel11' onchange = 'changeStatus();'>
+			<option value = '山内 : 在室'>山内 : 在室</option>
+			<option value = '山内 : ゼミ'>山内 : ゼミ</option>
+			<option value = '山内 : TA'>山内 : TA</option>
+			<option value = '山内 : 帰宅'>山内 : 帰宅</option>
+		</select>
+	</form>
+	<form name = 'sel1' class = 'styled-select blue semi-square'>
+		<select id = 'sel11' name = 'sel11' onchange = 'changeStatus();'>
+			<option value = '佐山 : 在室'>佐山 : 在室</option>
+			<option value = '佐山 : ゼミ'>佐山 : ゼミ</option>
+			<option value = '佐山 : TA'>佐山 : TA</option>
+			<option value = '佐山 : 帰宅'>佐山 : 帰宅</option>
+		</select>
+	</form>
+	<!--<input type ='button' value = '決定' onclick="changeStatus('sel1');">-->
 </body>
 </html>
