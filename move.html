@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>在室管理</title>
+
+	<script language="javascript" type="text/javascript">
+
+		function OnButtonClick(status){
+			var v = status.value.split(":");
+			for(var i = 0;i < v.length;i++){
+				v[i] = v[i].trim();
+			}
+			//window.open('status.html','_blank');
+			window.location.href = 'status.html'
+			status.value = v[0] + ' : ' + v[1]
+			console.log(v[0] + ' : ' + v[1]);
+		}
+		function change(status){
+			var v = status.value.split(":");
+			for(var i = 0;i < v.length;i++){
+				v[i] = v[i].trim();
+			}
+			var newV = localStorage.getItem('currentStatus');
+			v[1] = newV;
+			alert(newV);
+			status.value = v[0] + ' : ' + v[1]
+			console.log(v[0] + ' : ' + v[1]);
+		}
+
+	</script>
+	<meta http-equiv="content-type" charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./design.css">
+</head>
+<body>
+	
+	<!--<script type="text/javascript" src="./zaisitu.js"></script>
+	<button type="button" class="button2" value="宮崎" onclick="OnButtonClick(value);">宮崎<br>在室</button>-->
+	<input id="button1" type="button" value="宮崎 : 在室" onClick="OnButtonClick(this);"/>
+	</form>
+	<input id="button1" type="button" value="山内 : 在室" onClick="OnButtonClick(this);"/>
+	</form>
+	<input id="button1" type="button" value="佐山 : 在室" onClick="OnButtonClick(this);"/>
+
+</body>
+</html>
